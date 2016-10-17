@@ -1,0 +1,17 @@
+language: cpp
+
+services:
+  - docker
+
+env:
+    - BUILD_VARIANT=debug
+    - BUILD_VARIANT=release
+
+addons:
+  apt:
+    packages:
+      - p7zip-full
+      - tree
+
+script:
+  - echo ${BUILD_VARIANT}

@@ -1,0 +1,22 @@
+os: Visual Studio 2015
+version: 0.1.{build}
+
+environment:
+  PYTHON: "C:\\Python34"
+  INSTALL_DIR: "%APPVEYOR_BUILD_FOLDER%\\install"
+  matrix:
+  - BUILD_VARIANT: debug
+  - BUILD_VARIANT: release
+
+install:
+  - cmd: git submodule update --init --recursive
+  - cmd: set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+  - python --version
+  - pip --version
+
+build_script:
+- cmd: dir %APPVEYOR_BUILD_FOLDER%
+
+# artifacts:
+# - path:
+#   name:
